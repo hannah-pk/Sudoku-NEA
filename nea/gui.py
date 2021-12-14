@@ -104,8 +104,6 @@ class dropDown:
         self.box_hover = box_hover
     def draw(self,words,x,y,w,h,clicked):
         #font should be: 20
-        #base position: (300,300)
-        #dimensions: (100,30)
         #colours: black,white,black,pale blue
         pygame.draw.rect(display,BLACK,(x-2,y-2,w+4,h+4))
         pressed = button(self.msg,20,x,y,w,h,self.text,self.box,None,self.box_hover,clicked)
@@ -141,16 +139,11 @@ def menu():
         title_rect = title.get_rect(center=(WIDTH/2, HEIGHT/3))
         display.fill(WHITE)
         display.blit(title,title_rect)
-        
-        #d.draw(['easy','medium'],400,300,100,30,clicked)
         sudoku.difficulty = setDifficulty(clicked,d)
         start_pressed = button('START',75,300,400,300,100,LILAC,PALE_BLUE,PALE_BLUE,LILAC,clicked) 
         if start_pressed:
             start = False
         pygame.display.update()
-    #clock.tick(30)
-
-
 
 def button(msg,fontSize,x,y,w,h,col1,col2,col3 = None,col4 = None,clicked = False):
     #col1 is the colour of the text when the mouse is not on the box
@@ -319,7 +312,6 @@ def loading():
         pygame.display.update()
         
     sudoku.newcopy = deepcopy(sudoku.bcopy)
-    
 
 def main():
     main = True
@@ -349,8 +341,6 @@ def main():
         pencil,pencilPressed = pencilButton(635,175,pencil,clicked)
         undoPressed = undoButton(695,175,moves,clicked)
         redoPressed = redoButton(755,175,moves,clicked)
-        
-        
 
         for r in range(3):
             for c in range(3):
